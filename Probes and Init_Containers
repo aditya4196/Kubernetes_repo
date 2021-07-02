@@ -1,0 +1,19 @@
+Probes
+
+    kubectl create -f 7.1-namespace.yaml
+    kubectl create -f 7.2-data_tier.yaml -n probes
+    kubectl get deployments -n probes -w
+    kubectl create -f 7.3-app_tier.yaml -n probes
+    kubectl get -n probes deployments app-tier -w
+    kubectl get -n probes pods
+    kubectl logs -n probes app-tier-... | cut -d' ' -f5,8-11 (You can use tab completion to display the possible values to replace ... with)
+
+ 
+
+
+
+Init Containers
+
+    kubectl apply -f 8.1-app_tier.yaml -n probes
+    kubectl describe pod -n probes app-tier... (You can use tab completion to display the possible values to replace ... with)
+    kubectl logs -n probes app-tier-... await-redis (You can use tab completion to display the possible values to replace ... with)
