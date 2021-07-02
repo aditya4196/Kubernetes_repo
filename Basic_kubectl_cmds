@@ -1,0 +1,27 @@
+Pods
+
+    kubectl get pods
+    cd src
+    kubectl create -f 1.1-basic_pod.yaml
+    kubectl get pods
+    kubectl describe pod mypod | more
+    kubectl delete pod mypod
+    kubectl create -f 1.2-port_pod.yaml
+    kubectl describe pod mypod | more
+    curl 192.168.###.###:80 (Replace ###.### with the IP address octets from the describe output)
+    # This command will time out (see the next lesson to understand why)
+    kubectl describe pod mypod | more
+    kubectl delete pod mypod
+    kubectl create -f 1.4-resources_pod.yaml
+    kubectl describe pod mypod | more
+
+Note: kubectl will accept the singular or plural form of resource kinds. For example kubectl get pods and kubectl get pod are equivalent.
+
+ 
+Services
+
+    kubectl create -f 2.1-web_service.yaml
+    kubectl get services
+    kubectl describe service webserver
+    kubectl describe nodes | grep -i address -A 1
+    curl 10.0.0.100:3#### (replace #### with the actual port digits)
